@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PhuToan.mp3-2c8c58f9ec7cf8d3f1cd32a63cb94357.mp3str"
+
+[deps]
+
+source_file="res://PhuToan.mp3"
+dest_files=[ "res://.import/PhuToan.mp3-2c8c58f9ec7cf8d3f1cd32a63cb94357.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

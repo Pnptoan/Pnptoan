@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Car/Car/racing_car_game_character/png/4.png" type="Texture" id=1]
+[ext_resource path="res://square.gd" type="Script" id=2]
+[ext_resource path="res://Car/Car/racing_car_game_character/png/3.png" type="Texture" id=3]
+[ext_resource path="res://Car/Car/racing_car_game_character/png/2.png" type="Texture" id=4]
+[ext_resource path="res://Car/Car/racing_car_game_character/png/1.png" type="Texture" id=5]
+[ext_resource path="res://robot_demo/robot_demo.png" type="Texture" id=6]
+[ext_resource path="res://Super_Mario_Jump_Sound.mp3" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.3015, 14.3009 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "haha",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 21 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 23, 24 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "stand"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[node name="square" type="KinematicBody2D"]
+position = Vector2( -1, -1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+hframes = 16
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.629959 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 2, 2 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "move"
+frame = 2
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fall = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/move = SubResource( 5 )
+anims/stand = SubResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

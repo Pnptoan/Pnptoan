@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PointControl.gd" type="Script" id=1]
+[ext_resource path="res://coin/coin.png" type="Texture" id=2]
+
+[node name="PointControl" type="Control"]
+margin_left = 11.0
+margin_top = 78.0
+margin_right = 11.0
+margin_bottom = 78.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 10.3826, -56.6326 )
+texture = ExtResource( 2 )
+
+[node name="ScoreText" type="Label" parent="."]
+margin_left = 30.4491
+margin_top = -63.4336
+margin_right = 65.4491
+margin_bottom = -46.4336
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}

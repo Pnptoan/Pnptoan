@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Super_Mario_Jump_Sound.mp3-c4211f68761a15ffa8609020e2579c5f.mp3str"
+
+[deps]
+
+source_file="res://Super_Mario_Jump_Sound.mp3"
+dest_files=[ "res://.import/Super_Mario_Jump_Sound.mp3-c4211f68761a15ffa8609020e2579c5f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
